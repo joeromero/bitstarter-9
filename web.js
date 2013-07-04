@@ -14,9 +14,12 @@ fs = require('fs');
 
 app.get('/', function(request, response) {
 
-// response.send(buffer.toString('utf8', 0, buffer.length));
+var buffer = new Buffer(data, "utf-8")
 
-  response.send(data);
+
+ response.send(buffer.toString('utf8', 0, buffer.length));
+
+//  response.send(data);
 
 });
 
