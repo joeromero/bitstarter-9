@@ -18,17 +18,9 @@ var te="Hola";
  // response.send(buffer.toString('utf8', 0, buffer.length));
 */
 app.get('/', function(request, response) {
+  console.log("entro");
 
-var data="";
-fs = require('fs');
-
-    fs.readFile("index.html", function (err, content) {
-        if (err)
-                 return  -1
-        
-         data=content;
-    })
-
+  res.send(JSON.stringify("Hola"));
 
   response.send(data);
 
