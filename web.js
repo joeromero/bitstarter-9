@@ -2,19 +2,25 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 var data="";
-fs = require('fs')
-fs.readFile('index.html', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log(data);
-});
+fs = require('fs');
 
-var buffer = new Buffer(data, "utf-8")
+    fs.readFile("./index.html", function (err, content) {
+        if (err)
+		 return  -1
+	else
+	console.log("Ok" + content);
+	data=content;
+    })
+
+var buffer = new Buffer(data, "utf-8");
 app.get('/', function(request, response) {
 
-//  response.send(buffer.toString('utf8', 0, buffer.length));
-  response.send('Hello World!!!!');
+
+len = buffer.write('\u00bd + \u00bc = \u00be', 0);
+console.log(len + " bytes: " + buffer.toString('utf8', 0, len));
+
+  response.send(buffer.toString('utf8', 0, buffer.length));
+ // response.send('Hello World!!!!');
 
 });
 
