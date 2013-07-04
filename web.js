@@ -14,7 +14,7 @@ var buffer = new Buffer(data, "utf-8")
 app.get('/', function(request, response) {
 
 //  response.send(buffer.toString('utf8', 0, buffer.length));
-response.send(buffer.toString("Fuckkkkk"));
+response.send("Fuckkkkk");
 });
 
 var port = process.env.PORT || 5000;
