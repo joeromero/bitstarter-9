@@ -26,7 +26,6 @@ var program = require('commander');
 var cheerio = require('cheerio');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
-var request = require('request');
 
 var sys = require('util'),
     rest = require('../restler');
@@ -81,23 +80,20 @@ var assertUrlExists= function (url) {
 var checkJson="";
 var buffer = new Buffer(url, "utf-8")
 
-request(url, function (error, response, body) {
-//  if (!error && response.statusCode == 200) {
-  //  console.log(body) // Print the google web page.
-//console.log("flag 1",body);
-         checkJson = checkHtml(body, program.checks);
-//	console.log("a ver",checkJson)
-	print(checkJson);
-  //}
+
+rest.get(buffer.toString('utf8', 0, buffer.length)).on('complete', function(result) {
+  if (result instanceof Error) {
+    sys.puts('Error: ' + result.message);
+    this.retry(5000); // try again after 5 sec
+  } else {
+	console.log("flag 1");
+	 checkJson = checkHtml(result, program.checks);
+  }
+
 });
-
+return checkJson;
 }
 
-var print= function (variable){
-
-console.log(variable)
-
-}
 if(require.main == module) {
     program
         .option('-c, --checks ', 'Path to checks.json', assertFileExists, CHECKSFILE_DEFAULT)
@@ -108,14 +104,13 @@ if(require.main == module) {
 	if(program.file!=null){
 	  var checkJson = checkHtmlFile(program.file, program.checks);
  	  var outJson = JSON.stringify(checkJson, null, 4);
-	//console.log("flag 2",outJson);
+	console.log("flag 2",outJson);
    	} 
 
 	if(program.url!=null){
    	    var outUrl=assertUrlExists(process.argv[5]);
 	    var outJson = JSON.stringify(outUrl, null, 4);
-//	console.log("flag 2",outJson);
-//console.log("flag 2",outUrl);
+	console.log("flag 2",outJson);
 	}
 
     //console.log(outJson);
