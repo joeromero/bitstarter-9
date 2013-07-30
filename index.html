@@ -13,7 +13,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type"
 text/css">
 		<style type="text/css">
-		
+
 		/* Large desktop*/
 		@media (min-width: 980px){
 			body {
@@ -26,7 +26,7 @@ text/css">
 			border-left: 1px white solid;
 		}
 		}
-		
+
 		/*Landscape phone and woen*/
 		@media (max-width: 480px){
 		.copy {
@@ -37,11 +37,11 @@ text/css">
 		}
 		}
 
-		
+
 
 		/* All form Factors */
 		/*Main body and headings*/
-	
+
 		body {
 			font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 		}
@@ -78,7 +78,7 @@ text/css">
 		.statistics h3, .statistics p {
 		color: white;
 		}
-		
+
 		/*Marketing Copy and Footer*/
 
 		.copy {
@@ -101,7 +101,7 @@ text/css">
 			color: #ccccff;
 		}	
 
-	
+
 		</style>
 	</head>
 	<body>
@@ -126,7 +126,7 @@ text/css">
     </div>
 
 	<div class ="row-fluid heading">
-	
+
 		<div class="span12">
 			<h1>Mi primera Especulacion</h1>
 		</div>
@@ -146,7 +146,7 @@ text/css">
 		<div class="span8 offset2">
 			<div class="statistics">
 				<div class="span4">
-	
+
 				<div class="linediv-1">
 				<h3>1000</h3> <p>backers</p>
 				</div>
@@ -167,7 +167,7 @@ text/css">
 			</div>
 			</div>	
 		<div class="span10 offset1">
-		
+
 		<div class="thermometer progress active">
 		   <div class="bar bar-success" style="width: 60%;"></div>
 		   <div class="bar bar-warning" style="width: 40%;"></div>
@@ -188,6 +188,41 @@ text/css">
 
 	</div>
 
+ <div class="span3">
+        <h3>Basic form</h3>
+        <p>With v2.0, we have lighter and smarter defaults for form styles. No extra markup, just form controls.</p>
+    </div>
+    <div class="span9">
+        <form class="well">
+              {{ form_widget(form) }}
+              <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
+    <h3>Search form</h3>
+    <div class="row-fluid">
+        <div class="span3">
+          <p>Reflecting default WebKit styles, just add <code>.form-search</code> for extra rounded search fields.</p>
+        </div>
+        <div class="span9">
+          <form class="well form-search">
+              {{ form_widget(searchform) }}
+              <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+    </div>
+    <h3>Inline form</h3>
+    <div class="row-fluid">
+        <div class="span3">
+          <p>Inputs are block level to start. For <code>.form-inline</code> and <code>.form-horizontal</code>, we use inline-block.</p>
+        </div>
+        <div class="span9">
+          <form class="well form-search">
+                  {{ form_widget(inlineform) }}
+              <button type="submit" class="btn">Submit</button>
+          </form>
+        </div>
+
 
 
 
@@ -195,14 +230,14 @@ text/css">
 		<div class="span5 offset1 asset">
 		<img class="img-polaroid" src="http://placehold.it/480x300">
 	</div>
-	
+
 	<div class="span5 copy">
 	<p>
 		No se que hay que poner aquí pero creo que es una descripción
 	</p>
 	</div>
 	</div>
-	
+
 	<div class="row-fluid section2">
 		<div class="span5 offset1 copy copy-right">
 	<p>
@@ -232,7 +267,7 @@ What does FAW stand for?
 	</div>
 	</div>
 	</div>
-	
+
 	<div class="accordion-group">
 		<div class="accordion-heading">
 			<a class="accordion-toggle" data-toggle="collapse" data-parent="#acordion2" href="#collapseTwo"> What's a Frequently Asked Question?
@@ -263,11 +298,6 @@ What does FAW stand for?
 
 
 
-	
+
 
 </html>
-
-
-
-
-
