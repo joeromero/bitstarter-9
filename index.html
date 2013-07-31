@@ -101,11 +101,17 @@ text/css">
 			color: #ccccff;
 		}	
 
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
 
-<style>
-            .container-fluid {
-                  padding: 0px;
-            }
+
 
 
 		</style>
@@ -113,12 +119,7 @@ text/css">
 	<body>
 
 
- <div class="container-fluid">
-            <div class="row-fluid">
-        <div class="camera-holder">
-                    <img alt="camera" src="https://raw.github.com/LordNikonMac/bitstarter/master/bg.gif" style="width:100%;height:100%">
-        </div>
-            </div>
+<img src="https://raw.github.com/LordNikonMac/bitstarter/master/bg.gif" id="bg" alt="">
 
 
 <div class="navbar navbar-inverse navbar-fixed-top">
