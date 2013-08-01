@@ -261,44 +261,6 @@ text/css">
 
 
          </style>
-
-
-
-
-        <script type="text/javascript">
-
-
-
-var nowTemp = new Date();
-var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
- 
-var checkin = $('#dpd1').datepicker({
-  onRender: function(date) {
-    return date.valueOf() < now.valueOf() ? 'disabled' : '';
-  }
-}).on('changeDate', function(ev) {
-  if (ev.date.valueOf() > checkout.date.valueOf()) {
-    var newDate = new Date(ev.date)
-    newDate.setDate(newDate.getDate() + 1);
-    checkout.setValue(newDate);
-  }
-  checkin.hide();
-  $('#dpd2')[0].focus();
-}).data('datepicker');
-var checkout = $('#dpd2').datepicker({
-  onRender: function(date) {
-    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-  }
-}).on('changeDate', function(ev) {
-  checkout.hide();
-}).data('datepicker');
-
-
-	</script>
-
-
-
-
         </head>
 
 
@@ -382,16 +344,24 @@ var checkout = $('#dpd2').datepicker({
 	<!-- <input type="submit" class="btn btn-primary btn-large active" value="Search"/> -->
 	</th>
 	<th>
-	<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  <input class="span2" size="16" type="text" value="Chech In">
-  <span class="add-on"><i class="icon-th"></i></span>
-</div>
-	</th>
-	<th>
-	<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
-  <input class="span2" size="16" type="text" value="Chech Out">
-  <span class="add-on"><i class="icon-th"></i></span>
-</div>
+	<form class="form-horizontal">
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label" for="reservation">Reservation dates:</label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-calendar"></i></span><input type="text" name="reservation" id="reservation" />
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>
+ 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#reservation').daterangepicker();
+});
+</script>
 	</th>
 	
 	<th>
